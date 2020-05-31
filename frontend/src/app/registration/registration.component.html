@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col s6 offset-s3">
+    <div class="card">
+      <div class="card-image">
+        <img src="https://picsum.photos/id/10/2000/1024">
+        <span class="card-title">Start quiz</span>
+      </div>
+      <div class="card-content white-text">
+        <form #registerForm="ngForm">
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="Name" [(ngModel)]="name" required/>
+              <label>Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input type="text" name="Email" [(ngModel)]="email" required [pattern]="emailPattern"/>
+              <label>Email</label>
+            </div>
+          </div>
+          <button class="btn-large btn-submit" type="submit" [disabled]="!registerForm.valid">Start quiz</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
