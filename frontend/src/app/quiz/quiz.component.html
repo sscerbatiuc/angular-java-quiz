@@ -1,2 +1,35 @@
 <app-navbar></app-navbar>
-<p>quiz works!</p>
+<div class="row">
+  <div class="col s8 offset-s2">
+    <div class="card darken-1">
+      <div class="card-content">
+        <span>Elapsed {{ quizService.displayElapsedTime() }}</span>
+        <div class="progress">
+          <div class="determinate" [style.width.%]="(quizService.currentQuestion+1)*10"></div>
+        </div>
+        <span class="card-title">
+        {{ quizService.currentQuestion + 1 }} {{quizService.questions[quizService.currentQuestion].title}}
+      </span>
+        {{quizService.questions[quizService.currentQuestion].description}}
+        <div class="card-action">
+          <ul class="collection">
+            <ng-container>
+              <li (click)="quizService.answer(1)" class="answer">
+                <span>{{quizService.questions[quizService.currentQuestion].option1}}</span>
+              </li>
+              <li (click)="quizService.answer(2)" class="answer">
+                <span>{{quizService.questions[quizService.currentQuestion].option2}}</span>
+              </li>
+              <li (click)="quizService.answer(3)" class="answer">
+                <span>{{quizService.questions[quizService.currentQuestion].option3}}</span>
+              </li>
+              <li (click)="quizService.answer(4)" class="answer">
+                <span>{{quizService.questions[quizService.currentQuestion].option4}}</span>
+              </li>
+            </ng-container>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

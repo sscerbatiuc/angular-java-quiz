@@ -44,8 +44,8 @@ public class ParticipantsController {
   }
 
   @PostMapping()
-  public ResponseEntity<Participant> create(@RequestBody Participant question) {
-    return ResponseEntity.ok(repository.save(question));
+  public ResponseEntity<Participant> create(@RequestBody Participant participant) {
+    return ResponseEntity.ok(repository.save(participant));
   }
 
   @PutMapping("/{id}")
@@ -54,8 +54,7 @@ public class ParticipantsController {
     try {
       Participant edited = repository.findById(id).orElseThrow(() -> new QuestionNotFoundException(id));
       edited.setEmail(participant.getEmail());
-      edited.setFirstName(participant.getFirstName());
-      edited.setLastName(participant.getLastName());
+      edited.setName(participant.getName());
       edited.setScore(participant.getScore());
       return ResponseEntity.ok(repository.save(edited));
     }

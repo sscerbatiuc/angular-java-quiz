@@ -6,7 +6,7 @@
         <span class="card-title">Start quiz</span>
       </div>
       <div class="card-content white-text">
-        <form #registerForm="ngForm">
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="input-field col s12">
               <input type="text" name="Name" [(ngModel)]="name" required/>

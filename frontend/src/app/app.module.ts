@@ -9,6 +9,9 @@ import { ResultComponent } from './result/result.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
+import {QuizService} from './shared/quiz.service';
+import {HttpClientModule} from '@angular/common/http';
+import {AuthGuard} from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import {appRoutes} from './routes';
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [QuizService, HttpClientModule, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
